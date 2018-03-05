@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博客首页</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/grzx.css">
+    <script src="/stylesheets/bootstrap-3.3.7-dist/js/jquery-3.2.1.min.js"></script>
+    <script src="/stylesheets/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="/javascripts/layer/layer.js"></script>
+    <script>
+        function onAlert() {
+            layer.alert(
+                '<div class="form-group">\n' +
+                '<label>原密码：</label>\n' +
+                '<input type="text" class="form-control">\n' +
+                '</div>\n' +
+                '<div class="form-group">\n' +
+                '<label>新密码：<span style="color:darkgray">（长度为6~16位字符）</span></label>\n' +
+                '<input type="text" class="form-control">\n' +
+                '</div>\n' +
+                '<div class="form-group">\n' +
+                '<label>确认新密码：<span style="color:darkgray">（长度为6~16位字符）</span></label>\n' +
+                '<input type="text" class="form-control">\n' +
+                '</div>',
+            );
+        }
+        function viewImg(file) {
+            const div = document.getElementById('view');
+            // console.log(file.files);
+            const fileRrader = new FileReader();
+            if(file.files && file.files[0]){
+                fileRrader.readAsDataURL(file.files[0]);
+                fileRrader.onload = function (ev) {
+                    div.innerHTML = "<img src='"+ev.target.result+"'>";
+                }
+            }
+        }
+    </script>
+</head>
+<body style="background-color: rgb(245,245,245)">
+<%-include("header")%>
+<%-include("nav")%>
+<div class="container" style="margin-left: 10%">
+    <div class="row" style="margin-left: 5%;width: 80%;background-color: white">
+        <div class="col-md-2" style="background-color: rgb(242,236,236)">
+            <div style="width: 100%;text-align: center;background-color: rgb(242,236,236)">
+                <a href="">
+                <h1 class="glyphicon glyphicon-list-alt" aria-hidden="true"></h1>
+                    <br>
+                    <span>基本资料</span></a>
+            </div>
+            <div style="width: 100%;text-align: center;background-color:rgb(242,236,236)">
+                <a href="">
+                <h1 class="glyphicon glyphicon-book" aria-hidden="true"></h1>
+                <br>
+                <span>文章管理</span>
+                </a>
+            </div>
+            <div style="width: 100%;text-align: center;background-color: rgb(242,236,236)">
+                <a href="">
+                <h1 class="glyphicon glyphicon-plane" aria-hidden="true"></h1>
+                <br>
+                <span>分类管理</span>
+                </a>
+            </div>
+            <div style="width: 100%;text-align: center;background-color: rgb(242,236,236)">
+                <a href=""><h1 class="glyphicon glyphicon-trash" aria-hidden="true"></h1>
+                <br>
+                <span>草稿箱</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <form action="" method="post">
+                <h4 style="font-weight: 600;margin-bottom: 3%">基本资料</h4>
+                <div class="form-group">
+                    <label for="user">昵称：<span style="color:darkgray">它是显示在首页的名字</span></label>
+                    <input type="text" class="form-control" id="user" placeholder="昵称" name="nickname">
+                </div>
+                <div class="form-group">
+                    <label>个性签名：<span style="color:darkgray">你的设计感悟或一句话介绍</span></label>
+                    <input type="text" class="form-control"  placeholder="个性签名" name="signature">
+                </div>
+                <div class="form-group">
+                    <label>职位：<span style="color:darkgray">曾经担任过或现任的职位</span></label>
+                    <input type="text" class="form-control" placeholder="职位" name="position">
+                </div>
+                <div class="form-group">
+                    <label>社交帐户：<span style="color:darkgray;">微信号</span></label>
+                    <input type="text" class="form-control" placeholder="微信" name="info">
+                </div>
+                <button type="submit" class="btn btn-danger" style="width: 30%;">确定</button>
+                <button type="submit" class="btn btn-primary" style="margin-left: 3%;width: 30%;">取消</button>
+            </form>
+        </div>
+        <div class="col-md-3" style="text-align: center">
+            <!--<div style="width: 150px;height: 150px;background-color: rgb(224,92,88);border-radius: 150px"></div>-->
+            <img src="/images/1.jpg" alt="" style="margin-top: 30%" name="avatar">
+            <br>
+            <button type="submit" class="btn btn-danger" style="width: 80%;margin-top: 5%">修改头像</button>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-default" style="width: 80%;" onclick="onAlert()">修改密码</button>
+
+        </div>
+    </div>
+</div>
+<%-include("footer")%>
+</body>
+</html>

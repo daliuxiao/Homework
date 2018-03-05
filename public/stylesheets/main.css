@@ -1,0 +1,204 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+#d1{
+    height: 8%;
+    color: white;
+    background-image:url("../images/headerbg.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+}
+#d1 span{
+    font-size: 3vw;
+    line-height:400%;
+}
+.container span{
+    color: darkgray;
+}
+/*首页摘要*/
+.My-excerpt-box {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #dedcdc;
+}
+.My-excerpt-box h3 {
+    font-size: 2em;
+    line-height: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+}
+.My-excerpt-box span {
+    display: inline-block;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+}
+.My-excerpt-box span b {
+    font-weight: normal;
+    color: #f4645f;
+    margin-right: 5px;
+}
+.My-excerpt-box img {
+    margin-top: 20px;
+}
+.My-excerpt-box p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.My-excerpt-box .btn {
+    display: inline-block;
+    padding: 7px 14px;
+    background: #f46560;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 0;
+}
+.My-excerpt-box .btn:hover {
+    text-decoration: none;
+    background: #121212;
+    margin-left: 5px;
+}
+.My-excerpt .cat {
+    padding: 15px 20px 15px 0;
+    text-align: right;
+}
+.My-excerpt .cat span {
+    font-size: 14px;
+    color: #535353;
+    margin-left: 20px;
+    transition: all ease .4s;
+}
+.My-excerpt .cat span i {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.My-excerpt .cat span a {
+    vertical-align: middle;
+    color: #535353;
+}
+#r1 h4{
+    color: red ;
+    font-weight: 600
+}
+#x1{
+    width: 100px;
+    border: 2px solid red;
+    margin-top: 20px;
+    margin-left: -15px;
+}
+
+#r11{
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    border: 1px solid;
+}
+#r11 img{
+    border-radius: 100px;
+    margin: auto;
+}
+.index5{
+    text-align: center;
+    background-color: #E05C58 ;
+    width: 111%;
+    font-size: 10px;
+    color:white;
+    line-height: 23px;
+    margin-left: -15px;
+}
+.index5 li{
+    list-style: none;
+    margin-left: -30px;
+}
+#r12 img{
+    width: 100%;
+}
+#footer{
+    width:100%;
+    height: 200px;
+    margin-top: 4%;
+    background-color: #0f0f0f;
+}
+#footer span{
+    color: white;
+    font-size: 1.5vw;
+}
+#hr{
+    border: 0.5px solid white;
+    width: 80%;
+    margin-top: 3%;
+}
+#footer img{
+    margin-left: 12%;
+    margin-top:0.3%;
+}
+#footer li{
+    list-style: none;
+    float: left;
+    font-size: 1.2vw;
+    color: white;
+    margin-right: 7%;
+
+}
+#footer ul{
+    margin-top: -3.2%;
+    margin-left: 39%;
+}
+/*#f1{*/
+    /*width: 1px;*/
+    /*height: 100%;*/
+    /*border-right: 0.5px solid white;*/
+    /*margin-top: -5%;*/
+    /*margin-left: 36%;*/
+/*}*/
+#foot{
+    width: 80%;
+    height: auto;
+    margin-left: 16%;
+}
+#f2{
+    width: 24%;
+    height: auto;
+    color: gray;
+    line-height: 25px;
+    font-size: 1.1vw;
+    float: left;
+}
+#f3{
+    width: 70%;
+    height: auto;
+    color: white;
+    margin-left: 6%;
+    font-size: 1.1vw;
+    float: left;
+}
+#f3 img{
+    float: left;
+    width: 20%;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+#i1{
+    float: left;
+    height: 70px;
+    width: 30%;
+    font-size: 1.1vw;
+    margin-left: 2%;
+}
+#i2{
+    float: left;
+    height: 70px;
+    width: 40%;
+    font-size: 1.1vw;
+    margin-left: 3%;
+}
+#f3 span{
+    color: gray;
+    font-size: 1.1vw;
+}
+

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加文章</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/article.css">
+    <script src="/stylesheets/bootstrap-3.3.7-dist/js/jquery-3.2.1.min.js"></script>
+    <script src="/stylesheets/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</head>
+<body style="background-color: rgb(245,245,245)">
+<%-include("header")%>
+<%-include("nav")%>
+<form enctype="multipart/form-data" method="post" action="/article/add">
+<div class="container" style="width: 80%;">
+    <div class="row">
+    <div class="col-md-4">
+    <span class="glyphicon glyphicon-user" aria-hidden="true" style="color: red"></span>   刘晓
+        <div id="view"></div>
+        <div class="upload">
+            <span>上传封面图片</span>
+            <input type="file" onchange="viewImg(this)" name="img">
+        </div>
+        <script>
+            function viewImg(file) {
+                const div = document.getElementById('view');
+                // console.log(file.files);
+                const fileRrader = new FileReader();
+                if(file.files && file.files[0]){
+                    fileRrader.readAsDataURL(file.files[0]);
+                    fileRrader.onload = function (ev) {
+                        div.innerHTML = "<img src='"+ev.target.result+"'>";
+                    }
+                }
+            }
+        </script>
+    </div>
+        <div class="col-md-8" style="margin-top: 20px">
+                <div class="form-group">
+                    <label for="title">标题：</label>
+                    <input type="text" class="form-control" id="title" placeholder="标题" name="title">
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title">类型：</label>
+                    <select class="form-control" name="category_id">
+                        <% for(let i = 0; i < category.length; i++) { %>
+                        <option value="<%= category[i]._id %>"><%= category[i].name %></option>
+                        <% } %>
+                    </select>
+                    <p class="tit-Prompt">请选择类型</p>
+                </div>
+                <div class="col-md-6">
+                    <label for="user">原作者：</label>
+                    <input type="text" class="form-control" id="user" placeholder="原作者" name="author">
+                </div>
+                </div>
+                <div class="radio" style="margin-top: 20px">
+                    <h5 style="font-weight: 600;">精华文章：</h5>
+                    <br>
+                    <div class="radio-inline">
+                        <input class="magic-radio" type="radio" name="is_jing" id="r1" value="0">
+                        <label for="r1">是</label>
+                    </div>
+                    <div class="radio-inline">
+                        <input class="magic-radio" type="radio" name="is_jing" id="r2" value="0" checked>
+                        <label for="r2">否</label>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="width: 80%;">
+    <label><b style="font-size: 1.5vw">文章正文 </b>在这里填写详细的文章内容分享给大家</label>
+    <div id="editor">
+        <div class="form-group">
+            <textarea id="content-area" style="display: none;" class="form-control" rows="3" name="content" onchange="viewImg(this)"></textarea>
+            <div id="content-div" style="background-color: white;"></div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div style="text-align: center">
+        <button type="button"  class="btn btn-warning btn-lg" style="width: 15%;">保存</button>
+        <button type="submit" class="btn btn-danger btn-lg" style="width: 20%;margin-left: 2%">立即发布</button>
+    </div>
+</div>
+<%-include("footer")%>
+<script type="text/javascript" src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script type="text/javascript">
+
+    const E = window.wangEditor
+    const editor = new E('#content-div')
+    //editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    editor.customConfig.uploadImgServer = '/upload';
+    editor.customConfig.uploadFileName = 'img'
+    const $text1 = $('#content-area')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+    }
+    editor.create()
+    // 初始化 textarea 的值
+    $text1.val(editor.txt.html())
+
+
+    //图片上传预览
+</script>
+</form>
+</body>
+</html>

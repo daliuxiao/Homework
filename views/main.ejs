@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博客首页</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="/stylesheets/bootstrap-3.3.7-dist/js/jquery-3.2.1.min.js"></script>
+    <script src="/stylesheets/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script>
+        window.onload=function(){
+            const btn1=document.getElementById("btn1");
+            const aa=document.getElementById("aa");
+            btn1.onclick=function(){
+                alert(111111);
+                list[i].view+=1;
+            }
+        }
+    </script>
+</head>
+<body style="background-color: rgb(245,245,245)">
+<%-include("header")%>
+<%-include("nav")%>
+<div class="container" style="width: 75%;">
+    <div class="row">
+        <div class="col-md-8">
+                <ul class="My-excerpt">
+                    <% for(var i = 0; i < list.length; i++) { %>
+                    <li class="excerpt-minic " style="border: 1px solid lightgray;list-style: none;margin-left: -40px;margin-bottom: 30px;background-color: white">
+                        <div class="My-excerpt-box" style="margin-left: 35px">
+                            <h3><a href="#"><%=list[i].title%></a></h3>
+                            <span>作者：<b><%=list[i].author%></b>• <%=list[i].create_at%></span>
+                            <%if(list[i].img) {%>
+                            <img style="width: 95%;" src="/uploads/<%=list[i].img%>"
+                                 class="img-responsive"
+                                 alt="实例剖析尼尔森十大交互设计原则在设计中的用法"
+                                 title="实例剖析尼尔森十大交互设计原则在设计中的用法">
+                            <% } %>
+                            <p><%-list[i].content%></p>
+                            <a href="#" class="btn" id="btn1" onchange="click()">阅读文章</a></div>
+                        <div class="cat">
+                    <span>
+                        <i class="glyphicon glyphicon-heart"></i>
+                        <a href="#" id="aa">阅读：<%=list[i].view%></a>
+                    </span>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+
+            <% if(totalPage > 1) { %>
+            <div class="text" style="text-align: center">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <%if(page > 1) {%>
+                        <li class="font">
+                            <a href="/?page=<%=parseInt(page)-1%>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <% } %>
+                        <li class="font"><a href="#">第<%=page%>页/共<%=totalPage%>页</a></li>
+                        <%if(totalPage > page) {%>
+                        <li class="font">
+                            <a href="/?page=<%= parseInt(page)+1%>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </nav>
+            </div>
+            <% } %>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="col-md-12" style="border: 1px solid lightgray;background-color: white">
+            <div id="r1">
+                <div id="x1"></div>
+                <h4>博主简介</h4>
+                <div id="r11">
+                    <img src="/images/icon.jpg" alt="">
+                </div>
+                <div class="index5">
+                    <ul>
+                        <% for(var i = 0; i < list.length; i++) { %>
+                        <li><%=list[i].username%></li>
+                        <li><%=list[i].nickname%>：<%=list[i].position%></li>
+                        <li><%=list[i].info%></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <% for(var i = 0; i < list.length; i++) { %>
+                <h4 style="font-size: 12px;text-align: center;color: #000;"><%=list[i].signature%></h4>
+                <% } %>
+            </div>
+            </div>
+            <div class="col-md-12" style="margin-top:10px">
+                <h5>个人标签</h5>
+            </div>
+
+            <div class="col-md-12" style="border: 1px solid lightgray;background-color: white;text-align: center;line-height: 40px;">
+                <a class="label label-primary" href="#">手绘</a>
+                <a class="label label-info" href="#">ps教程</a>
+                <a class="label label-warning" href="#">文字特效</a>
+                <a class="label label-danger" href="#">调色</a>
+                <a class="label label-info" href="#" style="background-color: purple;">文字特效</a>
+                <a class="label label-warning" style="background-color: tomato" href="#">调色</a>
+            </div>
+
+            <div class="col-md-12" style="border: 1px solid lightgray;background-color: white;margin-top: 20px">
+                <div id="r1">
+                    <div id="x1"></div>
+                    <h4 style="color: #000;font-weight: 600">精选文章</h4>
+                    <div id="r12">
+                        <img src="../public/images/5431586.jpg" alt="">
+                    </div>
+                    <h5 style="text-align: left;color: #000;font-weight: 600">越努力越幸运-字体效果设计(教程)</h5>
+                    <span>2018-01-12</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;❤</span>
+                    <span>阅读&nbsp;&nbsp;2399</span>
+            </div>
+                <div id="r1">
+                    <div id="r12">
+                        <img src="/images/5431586.jpg" alt="">
+                    </div>
+                    <h5 style="text-align: left;color: #000;font-weight: 600">26个英文字母设计 - C4D作品</h5>
+                    <span>2018-01-12</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;❤</span>
+                    <span>阅读&nbsp;&nbsp;2399</span>
+                </div>
+            </div>
+            <div class="col-md-12" style="border: 1px solid lightgray;background-color: white;margin-top: 20px">
+                <div id="x1"></div>
+                <h4 style="color: #000;font-weight: 600">热门文章</h4>
+                <h5 style="text-align: left;color: #000;font-weight: 600;margin-left: -8px;margin-top: 15px">【回音小讲堂】五分钟画视幻 分享人:大礼包</h5>
+                <span>2018-01-12</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;❤</span>
+                <span>阅读&nbsp;&nbsp;2399</span>
+                <br>
+                <br>
+                <h5 style="text-align: left;color: #000;font-weight: 600">APP适配IOS8,IPhone6和Plus截图简要说明</h5>
+                <span>2018-01-12</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;❤</span>
+                <span>阅读&nbsp;&nbsp;2399</span>
+                <br>
+                <br>
+                <h5 style="text-align: left;color: #000;font-weight: 600"> Andriod分辨率适配" 葵花宝典 "</h5>
+                <span>2018-01-12</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;❤</span>
+                <span>阅读&nbsp;&nbsp;2399</span>
+                <br>
+                <br>
+                <h5 style="text-align: left;color: #000;font-weight: 600;margin-left: -8px">【设计经验】图标设计初阶要先型</h5>
+                <span>2018-01-12</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;❤</span>
+                <span>阅读&nbsp;&nbsp;2399</span>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include("footer")%>
+</body>
+</html>
